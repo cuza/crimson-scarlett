@@ -1,0 +1,40 @@
+name: Crimson
+options:
+  bundleIdPrefix: dev.cuza
+  deploymentTarget:
+    macOS: "14.0"
+packages:
+  ScarlettKit:
+    path: .
+targets:
+  Crimson:
+    type: application
+    platform: macOS
+    sources:
+      - path: Crimson
+        excludes: ["AppIcon.icon"]
+      - path: Crimson/AppIcon.icon
+        type: file
+        buildPhase: resources
+    info:
+      path: Crimson/Info.plist
+      properties:
+        # Spotlight's app search matches these, so "Focusrite" or "Scarlett" finds the app.
+        CFBundleAlternateNames: [Focusrite, Scarlett, Focusrite Scarlett, MixControl]
+    dependencies:
+      - package: ScarlettKit
+        product: ScarlettKit
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.cuza.Crimson
+        PRODUCT_NAME: Crimson
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        MARKETING_VERSION: "0.1"
+        CURRENT_PROJECT_VERSION: "1"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.music
+        CODE_SIGN_ENTITLEMENTS: Crimson/Crimson.entitlements
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ECKB9WN282
+        ENABLE_HARDENED_RUNTIME: YES
+        SWIFT_VERSION: "6.0"
