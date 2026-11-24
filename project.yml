@@ -21,6 +21,7 @@ targets:
       properties:
         # Spotlight's app search matches these, so "Focusrite" or "Scarlett" finds the app.
         CFBundleAlternateNames: [Focusrite, Scarlett, Focusrite Scarlett, MixControl]
+        MDItemKeywords: Focusrite,Scarlett,MixControl
     dependencies:
       - package: ScarlettKit
         product: ScarlettKit
